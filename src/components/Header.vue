@@ -3,7 +3,7 @@
     <div class="hidden-md-and-up Header_brunb ">
       面包屑
     </div>
-    <div class="hidden-md-and-down Header_container ">
+    <div class="hidden-sm-and-down Header_container ">
       <el-menu
         :default-active="activeIndex"
         class="el-menu-demo"
@@ -31,7 +31,7 @@
       <el-link @click="toLogin(1)">登录</el-link>
       <el-link>注册</el-link>
     </div>
-    <el-drawer title="我是标题" :visible.sync="isShow" :direction="`rtl`" :before-close="handleClose">
+    <el-drawer style="min-width:300px" title="我是标题" :visible.sync="isShow" :direction="`rtl`" :before-close="handleClose">
       <span>我来啦!</span>
       <Login />
     </el-drawer>
@@ -68,8 +68,13 @@ export default class HelloWorld extends Vue {
 </script>
 <style lang="scss" scoped>
 .Header {
-  color: #fff;
   position: relative;
+  background: linear-gradient(#fff,#d4d7db);
+  padding: 0 30px;
+  &_brunb{
+     height: 60px;
+    line-height: 60px;
+  }
   &_container {
     width: 900px;
     margin: 0 auto;
@@ -84,5 +89,10 @@ export default class HelloWorld extends Vue {
     line-height: 60px;
     bottom: 0;
   }
+}
+</style>
+<style>
+.el-drawer{
+  min-width: 300px;
 }
 </style>

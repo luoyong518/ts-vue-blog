@@ -1,5 +1,6 @@
 <template>
-  <div class="Header">
+  <div class="contanier">
+    <div class="Header">
     <div class="hidden-md-and-up Header_brunb ">
       面包屑
     </div>
@@ -10,19 +11,8 @@
         mode="horizontal"
         @select="handleSelect"
       >
-        <el-menu-item index="1">处理中心</el-menu-item>
-        <el-submenu index="2">
-          <template slot="title">我的工作台</template>
-          <el-menu-item index="2-1">选项1</el-menu-item>
-          <el-menu-item index="2-2">选项2</el-menu-item>
-          <el-menu-item index="2-3">选项3</el-menu-item>
-          <el-submenu index="2-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="2-4-1">选项1</el-menu-item>
-            <el-menu-item index="2-4-2">选项2</el-menu-item>
-            <el-menu-item index="2-4-3">选项3</el-menu-item>
-          </el-submenu>
-        </el-submenu>
+        <el-menu-item index="1">首页</el-menu-item>
+        <el-menu-item index="2">选项1</el-menu-item>
         <el-menu-item index="3">消息中心</el-menu-item>
         <el-menu-item index="4">订单管理</el-menu-item>
       </el-menu>
@@ -36,6 +26,8 @@
       <Login />
     </el-drawer>
   </div>
+  </div>
+  
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
@@ -67,10 +59,15 @@ export default class HelloWorld extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+.contanier{
+  background: linear-gradient(#fff,#d4d7db);
+}
 .Header {
   position: relative;
-  background: linear-gradient(#fff,#d4d7db);
-  padding: 0 30px;
+  
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
   &_brunb{
      height: 60px;
     line-height: 60px;

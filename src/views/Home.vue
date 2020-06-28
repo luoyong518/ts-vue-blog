@@ -5,7 +5,8 @@
 --> 
 <template>
   <div class="home">
-    <Header :activeIndex='`1`'/>
+    <Header :activeIndex='`1`' />
+    <router-view></router-view>
   </div>
 </template>
 

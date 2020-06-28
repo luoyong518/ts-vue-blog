@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/Home.vue'
-
+const routerPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location: any) {
+    return routerPush.call(this, location).catch((error: any) => error)
+}
 Vue.use(VueRouter)
 
   const routes: Array<RouteConfig> = [

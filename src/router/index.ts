@@ -1,3 +1,8 @@
+/*
+ * @Author: luoyong/471826078@qq.com
+ * @Date: 2020-06-19 10:49:18
+ * @LastEditors: 471826078@qq.com
+ */ 
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/Home.vue'
@@ -8,14 +13,22 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    children:[
+      {
+        path: 'Index',
+        name: 'Index',
+        meta:{title:'首页'},
+        component: () => import(/* webpackChunkName: "about" */ '../views/Index/Index.vue')
+      }
+    ],
+    redirect:{
+      name:'Index'
+    }
   },
   {
     path: '/about',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   }
 ]

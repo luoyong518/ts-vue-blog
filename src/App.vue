@@ -16,6 +16,13 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: left;
   color: #2c3e50;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  overflow-y: auto;
 }
 
 #nav {

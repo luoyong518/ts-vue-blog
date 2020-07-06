@@ -6,14 +6,16 @@
 <template>
     <div class="index">
         <main>
-            <Main />
+            <Main :articleList = 'articleList' />
             <Slider />
         </main>
         
     </div>
 </template>
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import {apiArticelQuery} from '@/api/article'
+
+import { Component,  Vue } from "vue-property-decorator";
 import Slider from '@/components/Slider.vue'
 import Main from '@/components/Main.vue'
 
@@ -22,7 +24,18 @@ import Main from '@/components/Main.vue'
  })
     
 export default class Index extends Vue {
-
+private articleList: any[] = [];
+    private onload(){
+        apiArticelQuery({}).then((res: any)=>{
+            console.log(res);
+            if(res.isSuccess){
+                this.articleList = res.data
+            }
+        })
+    }
+    mounted (){
+        this.onload()
+    }
 }
 </script>
 <style lang="scss" scoped>

@@ -20,6 +20,12 @@ Vue.use(VueRouter)
         name: 'Index',
         meta:{title:'首页'},
         component: () => import(/* webpackChunkName: "about" */ '../views/Index/Index.vue')
+      },
+      {
+        path: 'articleDetail',
+        name: 'articleDetail',
+        meta:{title:'文章详情'},
+        component: () => import(/* webpackChunkName: "about" */ '../views/Index/Detail.vue')
       }
     ],
     redirect:{

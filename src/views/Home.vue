@@ -28,7 +28,7 @@ export default class HelloWorld extends Vue {
   height: 100%;
 }
 .main{
-  height: calc(100% - 60px);
+  height: calc(100% - 61px);
   background-color: #f6f6f6;
   overflow-y: auto;
 }

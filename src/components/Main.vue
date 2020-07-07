@@ -14,23 +14,43 @@
                 <div class="indexListInfoTitle">{{item.name}}</div>
                 <p class="indexListInfoInterduce">{{item.note}}</p>
                 <div class="indexListInfoCounts">
-                    <div>yy-mm-dd hh:mm:ss week</div>
-                    <div>
-                        <span>500</span>
-                        <span>评论</span>
-                        <span>点赞</span>
+                    
+                    <div  class="indexListInfoCountsLeft">
+                        <span><i class="el-icon el-icon-time"></i>{{formatDate(item.createDate*1000)}}</span>
+                        <span><i class="el-icon el-icon-view"></i>500</span>
+                        <span><i class="el-icon el-icon-chat-square"></i>评论</span>
+                        <span><i class="el-icon el-icon-star-on"></i>点赞</span>
                     </div>
-                    <span>阅读全文</span>
+                    <span class="indexListInfoCountsMore" @click="readArticle(item._id)">阅读全文 <i class="el-icon el-icon-arrow-right"></i></span>
                 </div>
             </div>
         </div>
     </div>
 </template>
 <script lang="ts">
+import { formatDate } from '@/config'
 import { Component, Prop, Vue } from "vue-property-decorator";
+
 @Component
 export default class Main extends Vue{
  @Prop() private articleList: any;
+   private add0 = (num: number) => {
+    return num < 10 ? '0' + num : num
+}
+
+private formatDate(str: number) {
+    const time = new Date(str);
+    const year = time.getFullYear()
+    const month = time.getMonth() + 1
+    const day = time.getDate()
+    const h = time.getHours()
+    const minute = time.getMinutes()
+    const second = time.getSeconds()
+    return year + '-' + this.add0(month) + '-' + this.add0(day) + ' ' + this.add0(h) + ':' + this.add0(minute) + ':' + this.add0(second)
+} 
+private readArticle(_id: string) {
+    this.$router.push({name:'articleDetail', query:{_id}})
+}
 }
 </script>
 <style lang="scss" scoped>
@@ -40,6 +60,7 @@ export default class Main extends Vue{
     box-shadow: 3px 3px 3px #ccc;
     border-radius: 3px;
     &List{
+        margin-top: 10px;
         padding: 15px;
         background-color: #fff;
         display: flex;
@@ -81,10 +102,41 @@ export default class Main extends Vue{
                 height: 48px;
                 line-height: 24px;
                 margin-top: 16px;
+                color: #aaa;
+                font-size: 14px;
                 text-overflow:ellipsis;
                 white-space: wrap;
                 overflow: hidden;
                 word-wrap:break-word;
+            }
+            &Counts{
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: flex;
+                justify-content: space-between;
+                &Left{
+                    display: flex;
+                    height: 20px;
+                    align-items: center;
+                    flex-direction: row;
+                    font-size: 12px;
+                    color: #bbb;
+                    span{
+                        margin-right: 10px;
+                        cursor: pointer;
+                         &:hover{
+                         color: #409eff;
+                     }
+                    }
+                }
+                &More{
+                     cursor: pointer;
+                     &:hover{
+                         color: #409eff;
+                     }
+                }
             }
         }
     }

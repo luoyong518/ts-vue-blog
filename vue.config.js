@@ -5,6 +5,7 @@ module.exports = {
         proxy: {
             '/api': {
                 target: 'http://www.heyidangao.com:8089/api/', //对应自己的接口
+                // target: 'http://localhost:3002/api/',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/api': ''

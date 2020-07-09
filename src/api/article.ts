@@ -7,3 +7,5 @@ import {get,post} from '@/api/axios'
 
 export const apiArticelQuery = (p: object) => get('api/articles/queryWeb', p) 
 export const apiArticelQueryById = (p: object) => post('api/articles/queryById', p) 
+export const apiArticelQueryLast = (p: object) => post('api/articles/getPreAndNext', p) 
+

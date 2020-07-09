@@ -6,7 +6,12 @@
 <template>
     <div class="index">
         <main>
-            <ArticleDetail :articleInfo = 'articleInfo' />
+            <div>
+                <ArticleDetail :articleInfo = 'articleInfo' />
+                 <LastNext />
+                 <Me />
+            </div>
+            
             <Slider />
         </main>
         
@@ -18,9 +23,12 @@ import {apiArticelQueryById} from '@/api/article'
 import { Component,  Vue } from "vue-property-decorator";
 import Slider from '@/components/Slider.vue'
 import ArticleDetail from '@/components/ArticleDetail.vue'
+import LastNext from '@/components/LastAndNext.vue'
+import Me from '@/components/Me.vue'
+
 
  @Component({
- components: { Slider ,ArticleDetail}
+ components: { Slider ,ArticleDetail,LastNext,Me}
  })
     
 export default class Index extends Vue {

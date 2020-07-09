@@ -14,15 +14,19 @@
     </div>
     <div class="indexInterduce">{{articleInfo.note}}</div>
     <div v-html="articleInfo.htmlContent" class="content"></div>
+   
   </div>
 </template>
 <script lang="ts">
 // import marked from "marked";
 import { Component, Prop, Vue } from "vue-property-decorator";
+
 import "@/assets/css/sspai.scss";
 import "@/assets/css/atom-one-dark.scss";
 
-@Component
+@Component({
+    components: {}
+})
 export default class Main extends Vue {
   @Prop() private articleInfo: any;
   //   private content = marked(this.articleInfo.content);

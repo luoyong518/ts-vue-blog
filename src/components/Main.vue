@@ -59,12 +59,46 @@ private readArticle(_id: string) {
     // background-color: #ffffff;
     box-shadow: 3px 3px 3px #ccc;
     border-radius: 3px;
+    z-index: 1;
     &List{
         margin-top: 10px;
         padding: 15px;
         background-color: #fff;
         display: flex;
         justify-content: space-between;
+        position: relative;
+        z-index: 0;
+        //幽灵按钮
+        &::after{
+            position: absolute;
+            height: 1px;
+            width: 0px;
+            top: 0px;
+            left: 0;
+            background-color: #409Eff;
+            z-index: 0;
+            content: '';
+             transition:  1s  .2s;
+        }
+        &::before{
+            position: absolute;
+            height: 1px;
+            top: 170px;
+            left: 850px;
+            right: 0px;
+            background-color: #409Eff;
+            z-index: 0;
+            content: '';
+            transition:  1s  .2s;
+        }
+        &:hover{
+            &::after{
+                width: 850px;
+            }
+             &::before{
+               left: 0;
+            }
+        }
         &Img{
             position: relative;
             width: 220px;

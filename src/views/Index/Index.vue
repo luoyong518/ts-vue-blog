@@ -43,6 +43,8 @@ private articleList: any[] = [];
 main{
     width: 1200px;
     margin: 0 auto;
+    display: -webkit-flex;
+    display: -ms-flex; /* 兼容IE */
     display: flex;
     justify-content: space-between;
 }

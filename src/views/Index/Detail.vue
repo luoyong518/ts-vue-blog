@@ -10,6 +10,7 @@
                 <ArticleDetail :articleInfo = 'articleInfo' />
                  <LastNext />
                  <Me />
+                 <Commen :commenCount='0' :articleTitle='`测试`' />
             </div>
             
             <Slider />
@@ -25,10 +26,10 @@ import Slider from '@/components/Slider.vue'
 import ArticleDetail from '@/components/ArticleDetail.vue'
 import LastNext from '@/components/LastAndNext.vue'
 import Me from '@/components/Me.vue'
-
+import Commen from '@/components/Commen.vue'
 
  @Component({
- components: { Slider ,ArticleDetail,LastNext,Me}
+ components: { Slider ,ArticleDetail,LastNext,Me,Commen}
  })
     
 export default class Index extends Vue {

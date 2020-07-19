@@ -5,7 +5,7 @@
 --> 
 <template>
   <div class="home">
-    <Header :activeIndex='`1`' />
+    <Header :activeIndex='`0`' />
     <router-view class="main"></router-view>
   </div>
 </template>
@@ -29,7 +29,7 @@ export default class HelloWorld extends Vue {
 }
 .main{
   height: calc(100% - 61px);
-  background-color: #f6f6f6;
+  background-color: #f0f2f7;
   overflow-y: auto;
 }
 </style>

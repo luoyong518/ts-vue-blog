@@ -1,5 +1,6 @@
 module.exports = {
     publicPath: './', // 设置打包文件相对路径
+    productionSourceMap: false,
     devServer: {
         // open: true, //配置自动启动浏览器 
         proxy: {

@@ -26,7 +26,25 @@ Vue.use(VueRouter)
         name: 'articleDetail',
         meta:{title:'文章详情'},
         component: () => import(/* webpackChunkName: "about" */ '../views/Index/Detail.vue')
-      }
+      },
+      {
+        path: 'Web',
+        name: 'Web',
+        meta:{title:'前端'},
+        component: () => import(/* webpackChunkName: "about" */ '../views/Web/Web.vue')
+      },
+      {
+        path: 'Nodejs',
+        name: 'Nodejs',
+        meta:{title:'Nodejs'},
+        component: () => import(/* webpackChunkName: "about" */ '../views/Nodejs/nodejs.vue')
+      },
+      {
+        path: 'Timeing',
+        name: 'Timeing',
+        meta:{title:'时光机'},
+        component: () => import(/* webpackChunkName: "about" */ '../views/Timeing/Timeing.vue')
+      },
     ],
     redirect:{
       name:'Index'

@@ -19,6 +19,7 @@
 </template>
 <script lang="ts">
 // import marked from "marked";
+// import {formatDate} from './../config'
 import { Component, Prop, Vue } from "vue-property-decorator";
 
 import "@/assets/css/sspai.scss";
@@ -29,33 +30,20 @@ import "@/assets/css/atom-one-dark.scss";
 })
 export default class Main extends Vue {
   @Prop() private articleInfo: any;
-  //   private content = marked(this.articleInfo.content);
-  private add0 = (num: number) => {
-    return num < 10 ? "0" + num : num;
-  };
+     private add0 = (num: number) => {
+    return num < 10 ? '0' + num : num
+}
 
-  private formatDate(str: number) {
+private formatDate(str: number) {
     const time = new Date(str);
-    const year = time.getFullYear();
-    const month = time.getMonth() + 1;
-    const day = time.getDate();
-    const h = time.getHours();
-    const minute = time.getMinutes();
-    const second = time.getSeconds();
-    return (
-      year +
-      "-" +
-      this.add0(month) +
-      "-" +
-      this.add0(day) +
-      " " +
-      this.add0(h) +
-      ":" +
-      this.add0(minute) +
-      ":" +
-      this.add0(second)
-    );
-  }
+    const year = time.getFullYear()
+    const month = time.getMonth() + 1
+    const day = time.getDate()
+    const h = time.getHours()
+    const minute = time.getMinutes()
+    const second = time.getSeconds()
+    return year + '-' + this.add0(month) + '-' + this.add0(day) + ' ' + this.add0(h) + ':' + this.add0(minute) + ':' + this.add0(second)
+} 
   private readArticle(_id: string) {
     this.$router.push({ name: "articleDetail", query: { _id } });
   }

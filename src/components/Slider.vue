@@ -88,7 +88,7 @@ export default class HelloWorld extends Vue {
 </script>
 <style lang="scss" scoped>
 .silder {
-  background-color: #f6f6f6;
+  background-color: #f0f2f7;
   width: 340px;
   box-shadow: 3px 3px 3px #ccc;
   border-radius: 4px;
@@ -160,7 +160,7 @@ export default class HelloWorld extends Vue {
         line-height: 30px;
         text-align: center;
         margin-bottom: 10px;
-        background-color: #f6f6f6;
+        background-color: #f0f2f7;
         color: #999;
         &:hover {
           background-color: aqua;

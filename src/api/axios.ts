@@ -110,8 +110,10 @@ export const post = (url: string, params: object) => {
  * @Author: luoyong
  */
 export const get = (url: string, params: object) => {
+    console.log(params);
+    
     return new Promise((resolve, reject) => {
-        axios.get(url, params).then(res => {
+        axios.get(url, {params}).then(res => {
             resolve(res.data)
         }).catch(err => {
             reject(err.data)

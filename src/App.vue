@@ -37,4 +37,7 @@
     }
   }
 }
+.whiteBg{
+    background-color: #fff;
+}
 </style>

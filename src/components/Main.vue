@@ -5,20 +5,29 @@
 --> 
 <template>
     <div class="index">
+  
+    <el-breadcrumb separator="/" class="indexCrumb" v-if="$store.state.crumb.length>1">
+        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item>
+            <a href="/">活动管理</a>
+        </el-breadcrumb-item>
+        <el-breadcrumb-item>活动列表</el-breadcrumb-item>
+        <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+        </el-breadcrumb>
         <div v-for="(item,index) in articleList" :key="index+item._id" class="indexList">
             <div class="indexListImg">
                 <img :src="item.imgUrl" alt="">
                 <div  class="indexListImgDate">2020-07-07</div>
             </div>
             <div class="indexListInfo">
-                <div class="indexListInfoTitle">{{item.name}}</div>
+                <div class="indexListInfoTitle"  @click="readArticle(item._id)">{{item.name}}</div>
                 <p class="indexListInfoInterduce">{{item.note}}</p>
                 <div class="indexListInfoCounts">
                     
                     <div  class="indexListInfoCountsLeft">
                         <span><i class="el-icon el-icon-time"></i>{{formatDate(item.createDate*1000)}}</span>
                         <span><i class="el-icon el-icon-view"></i>500</span>
-                        <span><i class="el-icon el-icon-chat-square"></i>评论</span>
+                        <span><i class="el-icon el-icon-chat-square"  @click="readArticle(item._id)"></i>评论</span>
                         <span><i class="el-icon el-icon-star-on"></i>点赞</span>
                     </div>
                     <span class="indexListInfoCountsMore" @click="readArticle(item._id)">阅读全文 <i class="el-icon el-icon-arrow-right"></i></span>
@@ -28,7 +37,8 @@
     </div>
 </template>
 <script lang="ts">
-import { formatDate } from '@/config'
+// import { formatDate } from './../config'
+// import util from '@/util/common'
 import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component
@@ -55,6 +65,12 @@ private readArticle(_id: string) {
 </script>
 <style lang="scss" scoped>
 .index{
+     &Crumb{
+        height: 40px;
+        line-height: 40px;
+        background-color: #fff;
+        margin-top: 10px;
+    }
     width: 850px;
     // background-color: #ffffff;
     box-shadow: 3px 3px 3px #ccc;
@@ -130,6 +146,10 @@ private readArticle(_id: string) {
                 margin-bottom: 5px;
                 font-size: 18px;
                 color: #666;
+                 cursor: pointer;
+                     &:hover{
+                         color: #409eff;
+                     }
             }
             &Interduce{
                 width: 580px;

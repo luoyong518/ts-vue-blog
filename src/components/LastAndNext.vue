@@ -5,7 +5,8 @@
 --> 
 <template>
     <div class="preNext">
-        <div>上一篇:{{preArticle.name}}</div>
+         <div v-if='!preArticle'>已经是最后一篇文章！</div>
+        <div v-else>上一篇:{{preArticle.name}}</div>
         <div v-if='!nextArticle'>已经是最后一篇文章！</div>
         <div v-else>下一篇:{{nextArticle.name}}</div>
     </div>
